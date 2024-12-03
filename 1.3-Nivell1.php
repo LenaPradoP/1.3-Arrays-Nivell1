@@ -1,8 +1,8 @@
 <?php 
-
+declare(strict_types = 1);
 
 echo "<h1><u> Ejercicio 1 </u></h1>";
-$numeros = [2, 7, 12, 43, 29];
+    $numeros = [2, 7, 12, 43, 29];
 
 for ($i = 0; $i <= count($numeros); $i++) {
     echo "$numeros[$i] <br>";
@@ -19,5 +19,24 @@ $X = array_values($X);
 
 echo count($X) . "<br>";
 
+echo "<h1><u> Ejercicio 3 </u></h1>";
+    $palabras = ["casa", "sol", "cose"];
+    $caracter = "o";
+
+echo buscarCaracter($palabras, $caracter);
+
+function buscarCaracter(array $palabras, string $caracter) : bool {
+    $contieneCaracter = false;
+
+    foreach ($palabras as $palabra) {
+        if (strpos($palabra, $caracter)){
+            $contieneCaracter = true;
+        } else {
+            $contieneCaracter = false;
+        }
+    }
+
+    return $contieneCaracter;
+}
 
 ?>
