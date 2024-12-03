@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 echo "<h1><u> Ejercicio 1 </u></h1>";
-    $numeros = [2, 7, 12, 43, 29];
+    $numeros = array(2, 7, 12, 43, 29);
 
 for ($i = 0; $i <= count($numeros); $i++) {
     echo "$numeros[$i] <br>";
@@ -20,23 +20,36 @@ $X = array_values($X);
 echo count($X) . "<br>";
 
 echo "<h1><u> Ejercicio 3 </u></h1>";
-    $palabras = ["casa", "sol", "cose"];
-    $caracter = "o";
+    $palabras = array("casa", "sol", "cose");
+    $caracter = "s";
 
-echo buscarCaracter($palabras, $caracter);
+    if (buscarCaracter($palabras, $caracter) == true) {
+        echo "Todas las palabras contienen $caracter.";
+    } else {
+        echo "No todas las palabras contienen $caracter.";
+    }
 
 function buscarCaracter(array $palabras, string $caracter) : bool {
-    $contieneCaracter = false;
+    $contieneCaracter = true;
 
     foreach ($palabras as $palabra) {
-        if (strpos($palabra, $caracter)){
-            $contieneCaracter = true;
-        } else {
+        if (strpos($palabra, $caracter)  === false) {
             $contieneCaracter = false;
-        }
+            break;
+        } 
     }
 
     return $contieneCaracter;
 }
+
+echo "<h1><u> Ejercicio 4 </u></h1>";
+    $misDatos = array("Nombre" => "Lena", 
+    "Edad" => 43, 
+    "Email" => "lena@atajo.es", 
+    "Comida Favorita" => "comida india.");
+
+    foreach ($misDatos as $campo => $dato) {
+        echo "$campo: $dato <br>";
+    }
 
 ?>
